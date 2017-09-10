@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bow.monet.dao.MachineDao">
+
+    <insert id="insert">
+        insert into mdata1
+        ( id,name, ip, sn, pwd, nickName, f0, f1, f2, f3, f4, f5, f6, f7, f8, f9)
+        values
+        <foreach collection="data" item="d" separator=",">
+            (
+                #{d.id},
+                #{d.name},
+                #{d.ip},
+                #{d.sn},
+                #{d.pwd},
+                #{d.nickName},
+                #{d.f0},
+                #{d.f1},
+                #{d.f2},
+                #{d.f3},
+                #{d.f4},
+                #{d.f5},
+                #{d.f6},
+                #{d.f7},
+                #{d.f8},
+                #{d.f9}
+            )
+        </foreach>
+    </insert>
+
+    <select id="count" resultType="int">
+        SELECT count(*) FROM mdata1
+    </select>
+
+
+</mapper>
